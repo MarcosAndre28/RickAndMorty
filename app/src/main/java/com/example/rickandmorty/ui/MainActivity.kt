@@ -2,6 +2,7 @@ package com.example.rickandmorty.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -22,6 +23,6 @@ class MainActivity : AppCompatActivity() {
         val navController: NavController = navHostFragment.navController
 
         val appBarConfiguration: AppBarConfiguration = AppBarConfiguration(navController.graph)
-        binding.toolbar.setupWithNavController(navController, appBarConfiguration)
+
     }
 }

@@ -90,4 +90,7 @@ dependencies {
     //Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
+    //Splashscreen
+    implementation 'androidx.core:core-splashscreen:1.0.0'
+
 }
