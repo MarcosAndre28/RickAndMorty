@@ -1,15 +1,20 @@
 package com.example.rickandmorty.ui
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.RoundedCorner
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.example.rickandmorty.databinding.FragmentCharacterDetailBinding
 import com.example.rickandmorty.db.model.InfoCharacter
 import com.example.rickandmorty.db.viewModel.CharacterDetailViewModel
@@ -39,6 +44,7 @@ class CharacterDetailFragment : Fragment() {
             characterDetailViewModel.start(it)
         }
         setupObservers()
+
     }
 
     private fun setupObservers() {
@@ -61,6 +67,7 @@ class CharacterDetailFragment : Fragment() {
         })
     }
 
+    @RequiresApi(Build.VERSION_CODES.S)
     private fun bindCharacter(character: InfoCharacter) {
         binding.name.text = character.name
         binding.species.text = character.species
@@ -68,7 +75,7 @@ class CharacterDetailFragment : Fragment() {
         binding.gender.text = character.gender
         Glide.with(binding.root)
             .load(character.image)
-            .transform(CircleCrop())
+            .apply(RequestOptions.bitmapTransform(RoundedCorners(20)))
             .into(binding.image)
     }
 }

@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.example.rickandmorty.db.model.InfoCharacter
 import com.example.rickandmorty.databinding.ItemCharacterBinding
 
@@ -55,7 +57,7 @@ class CharacterViewHolder(
         itemBinding.speciesAndStatus.text = """${item.species} - ${item.status}"""
         Glide.with(itemBinding.root)
             .load(item.image)
-            .transform(CircleCrop())
+            .apply(RequestOptions.bitmapTransform(RoundedCorners(20)))
             .into(itemBinding.image)
     }
 

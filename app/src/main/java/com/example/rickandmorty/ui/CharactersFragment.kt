@@ -1,15 +1,15 @@
 package com.example.rickandmorty.ui
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rickandmorty.R
 import com.example.rickandmorty.databinding.FragmentCharactersBinding
@@ -42,7 +42,7 @@ class CharactersFragment : Fragment(), CharactersAdapter.CharacterItemListener {
 
     private fun setupRecyclerView() {
         adapter = CharactersAdapter(this)
-        binding.charactersRv.layoutManager = LinearLayoutManager(requireContext())
+        binding.charactersRv.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL,false)
         binding.charactersRv.adapter = adapter
     }
 
