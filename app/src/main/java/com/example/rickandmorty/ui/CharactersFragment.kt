@@ -42,7 +42,7 @@ class CharactersFragment : Fragment(), CharactersAdapter.CharacterItemListener {
 
     private fun setupRecyclerView() {
         adapter = CharactersAdapter(this)
-        binding.charactersRv.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL,false)
+        binding.charactersRv.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.charactersRv.adapter = adapter
     }
 
